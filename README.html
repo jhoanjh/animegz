@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Cinematic Universe</title>
+    <style>
+        /* Reset de márgenes y paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-color: #141414;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #000;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            color: #e50914;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #e50914;
+        }
+
+        .container {
+            display: none;
+            padding: 20px;
+            margin-top: 60px; /* Para no estar oculto por el header */
+        }
+
+        .banner {
+            background: url('https://c.wallhere.com/images/30/21/c046452da9ffb8d651b340f830a4-1425819.png!d') no-repeat center center;
+            background-size: cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+
+        .banner-content {
+            position: absolute;
+            max-width: 600px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+        }
+
+        .banner h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            font-size: 1.2em;
+        }
+
+        .grid {
+            padding: 20px;
+        }
+
+        .grid h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grid-item img {
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .grid-item p {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1em;
+        }
+
+        .anime-details {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .anime-details h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .chapter-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chapter-list li {
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .chapter-list li:hover {
+            background-color: #222;
+            transform: scale(1.02);
+        }
+
+        .chapter-list a {
+            display: block;
+            padding: 15px;
+            color: #e50914;
+            text-decoration: none;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .chapter-list a:hover {
+            color: #fff;
+        }
+
+        .video-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Anime Cinematic Universe</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')">Inicio</a></li>
+                <li><a href="#" onclick="showPage('details')">Detalles</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="mainContent">
+        <!-- Página Principal -->
+        <div id="home" class="container">
+            <section class="banner">
+                <div class="banner-content">
+                    <h1>ANIME STREAMING</h1>
+                    <p>Descubre las últimas y más populares series y películas de anime.</p>
+                </div>
+            </section>
+            
+            <section class="grid">
+                <h2>Recomendaciones</h2>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <img src="https://m.media-amazon.com/images/M/MV5BZmQ5NGFiNWEtMmMyMC00MDdiLTg4YjktOGY5Yzc2MDUxMTE1XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_FMjpg_UX1000_.jpg" alt="Título 1" onclick="showPage('details')">
+                        <p>Título 1</p>
+                    </div>
+                    <!-- Agregar más títulos aquí -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Página de Detalles del Anime -->
+        <div id="details" class="container">
+            <section class="anime-details">
+                <h2>Naruto</h2>
+                <ul class="chapter-list">
+                    <li><a href="#" data-video="https://www.dropbox.com/scl/fi/914g0btq97rli57m2m3ou/Naruto-capitulo-1-en-espa-ol-latino-_-ENTRA-NARUTO-UZUMAKI-_-360P.mp4?rlkey=w0b9sk5ed4kq7rsadidui0d5f&st=91cqmsjy&dl=1">Capítulo 1</a></li>
+                    <li><a href="#" data-video="#">Capítulo 2</a></li>
+                    <li><a href="#" data-video="#">Capítulo 3</a></li>
+                    <!-- Agregar más capítulos aquí -->
+                </ul>
+                <div class="video-container">
+                    <video id="animeVideo" controls>
+                        <source src="" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Anime Cinematic Universe. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            var pages = document.querySelectorAll('.container');
+            pages.forEach(function(page) {
+                page.style.display = 'none'; // Ocultar todas las páginas
+            });
+            var selectedPage = document.getElementById(pageId);
+            selectedPage.style.display = 'block'; // Mostrar la página seleccionada
+
+            // Detener el video y ocultar el contenedor si se navega a la página de inicio
+            if (pageId === 'home') {
+                var animeVideo = document.getElementById('animeVideo');
+                animeVideo.pause();
+                animeVideo.currentTime = 0; // Reiniciar el video
+                var videoContainer = document.querySelector('.video-container');
+                videoContainer.style.display = 'none'; // Ocultar el contenedor del video
+            }
+        }
+
+        // Inicialmente mostrar la página principal
+        showPage('home');
+
+        // Manejo de clics en la lista de capítulos
+        var chapterLinks = document.querySelectorAll('.chapter-list a');
+        var videoContainer = document.querySelector('.video-container');
+        var animeVideo = document.getElementById('animeVideo');
+
+        chapterLinks.forEach(function(link) {
+            link.onclick = function(e) {
+                e.preventDefault(); // Evita el comportamiento por defecto del enlace
+                var videoSrc = link.getAttribute('data-video');
+                if (videoSrc) {
+                    animeVideo.src = videoSrc;
+                    videoContainer.style.display = 'block'; // Mostrar el video
+                    animeVideo.play();
+                }
+                chapterLinks.forEach(function(link) { link.parentElement.classList.remove('active'); });
+                link.parentElement.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
